@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/quentinrossetti/R.git"
+    "url": "git://github.com/quentinrossetti/rrr.git"
   },
   "keywords": [
     "recursive",
@@ -21,9 +21,9 @@
   "author": "Quentin Rossetti <quentin.rossetti@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/quentinrossetti/R/issues"
+    "url": "https://github.com/quentinrossetti/rrr/issues"
   },
-  "homepage": "https://github.com/quentinrossetti/R",
+  "homepage": "https://github.com/quentinrossetti/rrr",
   "devDependencies": {
     "chai": "^1.9.1",
     "docco": "^0.6.3",
@@ -31,6 +31,6 @@
     "mocha": "^1.21.4"
   },
   "dependencies": {
-    "deep-get-set": "^0.1.1"
+    "compiled-accessors": "^0.2.0"
   }
 }
