@@ -1,7 +1,7 @@
 {
   "name": "rrr",
-  "version": "0.0.0",
-  "description": "Your new recusive utility belt!",
+  "version": "0.1.0",
+  "description": "Your new recursive utility belt!",
   "main": "index.js",
   "scripts": {
     "test": "mocha",

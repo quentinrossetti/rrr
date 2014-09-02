@@ -14,14 +14,13 @@ var collection = {
     },
     two2: 'this is a string'
   },
-  one2: false,
+  one2: 42,
   one3: new Date(),
   one4: [ 'hello', 'world' ],
 };
 
 // Test suite
 // ----------
-
 
 describe('Rrr.access()', function () {
 
@@ -36,12 +35,17 @@ describe('Rrr.access()', function () {
     expect(r.obj.one.two.three).to.eql(42);
   });
 
+  it('should return global object with no args', function () {
+    var r = new Rrr(collection).access();
+    expect(r.one2).to.eql(42);
+  });
+
 });
 
 
 describe('Rrr.each()', function () {
 
-  it('should apply a function', function () {
+  it('should run a function', function () {
     var r = new Rrr(collection);
     var i = 0;
     r.each(function () {
@@ -62,6 +66,51 @@ describe('Rrr.each()', function () {
     r.each(function (val) {
       expect(val).not.to.eql(undefined);
     });
+  });
+
+  it('should not alter values values', function () {
+    var r = new Rrr(collection);
+    r.each(function (val) {
+      if (typeof val === 'number') {
+        val++;
+        return val;
+      } else {
+        return val;
+      }
+    });
+    expect(r.obj.one2).to.eql(42);
+  });
+
+});
+
+
+describe('Rrr.map()', function () {
+
+  it('should contain keys', function () {
+    var r = new Rrr(collection);
+    r.map(function (val, key) {
+      expect(key).to.contain('one');
+    });
+  });
+
+  it('should have values', function () {
+    var r = new Rrr(collection);
+    r.map(function (val) {
+      expect(val).not.to.eql(undefined);
+    });
+  });
+
+  it('should apply a function', function () {
+    var r = new Rrr(collection);
+    r.map(function (val) {
+      if (typeof val === 'number') {
+        val++;
+        return val;
+      } else {
+        return val;
+      }
+    });
+    expect(r.obj.one2).to.eql(43);
   });
 
 });
