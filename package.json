@@ -4,7 +4,10 @@
   "description": "Your new recusive utility belt!",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha --dir .tmp/coverage",
+    "coveralls": "npm install coveralls && cat .tmp/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "doc": "docco index.js -o .tmp/doc"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,14 @@
   "bugs": {
     "url": "https://github.com/quentinrossetti/R/issues"
   },
-  "homepage": "https://github.com/quentinrossetti/R"
+  "homepage": "https://github.com/quentinrossetti/R",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "docco": "^0.6.3",
+    "istanbul": "^0.3.0",
+    "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "deep-get-set": "^0.1.1"
+  }
 }

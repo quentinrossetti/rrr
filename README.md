@@ -14,6 +14,24 @@
 npm install --save rrr
 ```
 
+## API
+
+### each `new Rrr(collection).each(fn)`
+Run a function on each item in the collection. The `fn` function passed accepts
+two parameters `(value, key)`. The first is the value and can't be an other
+object. The second is a *string* that represents the path the the item, use
+`access` method to get the value.
+```js
+var collection = { one: { nestOne: 42 }, two: 'item', three: [ true, false ] };
+new Rrr(collection).each(function (value, key) {
+  console.log('%s: %s', key, value);
+});
+// one.nestOne: 42
+// two: 'item'
+// three.0: true
+// three.1: false
+```
+
 ***
 With :heart: from [quentinrossetti](https://github.com/quentinrossetti)
 
