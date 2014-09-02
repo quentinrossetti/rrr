@@ -1,6 +1,6 @@
 {
   "name": "rrr",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Your new recursive utility belt!",
   "main": "index.js",
   "scripts": {
