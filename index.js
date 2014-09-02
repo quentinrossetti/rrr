@@ -1,10 +1,17 @@
 'use strict';
-var accessor = require('deep-get-set');
 
 var Api = function (obj) {
   this.obj = obj;
 };
 
+Api.prototype.access = function (path, value) {
+  var accessor = require('deep-get-set');
+  if (value) {
+    return accessor(this.obj, path, value);
+  } else {
+    return accessor(this.obj, path);
+  }
+};
 
 Api.prototype.each = function (fn) {
 

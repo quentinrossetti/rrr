@@ -16,6 +16,21 @@ npm install --save rrr
 
 ## API
 
+### access `new Rrr(collection).access(path, [value])`
+Access a nested property of the object. The `path` is a *string* representing
+the property's path. Use the `.` character to identify a level (With both
+objects and arrays). When  `value` is defined the value of the item is set.
+```js
+var collection = { one: { nestOne: 42 }, two: 'item', three: [ true, false ] };
+var my = new Rrr(collection);
+my.access('one.nestOne');
+// 42
+my.access('one.nestOne', 1337);
+// 1337
+my.access('one');
+// { nestOne: 1337 }
+```
+
 ### each `new Rrr(collection).each(fn)`
 Run a function on each item in the collection. The `fn` function passed accepts
 two parameters `(value, key)`. The first is the value and can't be an other

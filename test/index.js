@@ -22,6 +22,23 @@ var collection = {
 // Test suite
 // ----------
 
+
+describe('Rrr.access()', function () {
+
+  it('should read deep property', function () {
+    var r = new Rrr(collection).access('one.two.three');
+    expect(r).to.eql(true);
+  });
+
+  it('should set deep property', function () {
+    var r = new Rrr(collection);
+    r.access('one.two.three', 42);
+    expect(r.obj.one.two.three).to.eql(42);
+  });
+
+});
+
+
 describe('Rrr.each()', function () {
 
   it('should apply a function', function () {
