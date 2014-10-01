@@ -73,11 +73,11 @@ object. To do so return the new value that you want for your item.
 var collection = { one: { nestOne: 42 }, two: 'item', three: [ true, false ] };
 var my = new Rrr(collection)
 my.map(function (value, key) {
-  if (typeof val === 'number') {
-    val++;
-    return val;
+  if (typeof value === 'number') {
+    value++;
+    return value;
   } else {
-    return val;
+    return value;
   }
 });
 console.log(my)
